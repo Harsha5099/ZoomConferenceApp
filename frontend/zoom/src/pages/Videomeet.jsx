@@ -12,6 +12,7 @@ import ScreenShareIcon from '@mui/icons-material/ScreenShare';
 import StopScreenShareIcon from '@mui/icons-material/StopScreenShare'
 import ChatIcon from '@mui/icons-material/Chat'
 import server from '../envirnoment';
+import { Navigate } from 'react-router-dom';
 
 
 const server_url =  server;
@@ -406,7 +407,12 @@ export default function VideoMeetComponent() {
             let tracks = localVideoref.current.srcObject.getTracks()
             tracks.forEach(track => track.stop())
         } catch (e) { }
-        window.location.href = '/home'
+        if (socketRef.current) {
+        socketRef.current.emit('leave-call'); // You should have a 'leave-call' event on the server
+        socketRef.current.disconnect();
+    }
+        // window.location.href = '/home'
+        Navigate('/home');
     }
 
     let openChat = () => {
