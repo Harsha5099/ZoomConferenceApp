@@ -406,7 +406,7 @@ export default function VideoMeetComponent() {
             let tracks = localVideoref.current.srcObject.getTracks()
             tracks.forEach(track => track.stop())
         } catch (e) { }
-        window.location.href = "/home"
+        window.location.href = `${server}/home`
     }
 
     let openChat = () => {
@@ -461,7 +461,7 @@ export default function VideoMeetComponent() {
 
 
                     <div>
-                        <video ref={localVideoref} autoPlay muted></video>
+                        <video ref={localVideoref} autoPlay muted  style={{ transform: 'none' }} ></video>
                     </div>
 
                 </div> :
@@ -538,6 +538,7 @@ export default function VideoMeetComponent() {
                                         }
                                     }}
                                     autoPlay
+                                    style={{ transform: 'none' }}
                                 >
                                 </video>
                             </div>
