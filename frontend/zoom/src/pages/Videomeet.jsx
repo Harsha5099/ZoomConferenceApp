@@ -461,7 +461,7 @@ export default function VideoMeetComponent() {
 
 
                     <div>
-                        <video ref={localVideoref} autoPlay muted  style={{ transform: scaleX(-1) }} ></video>
+                        <video ref={localVideoref} autoPlay muted   ></video>
                     </div>
 
                 </div> :
@@ -538,7 +538,7 @@ export default function VideoMeetComponent() {
                                         }
                                     }}
                                     autoPlay
-                                    style={{ transform: scaleX(-1)}}
+                                    
                                 >
                                 </video>
                             </div>
